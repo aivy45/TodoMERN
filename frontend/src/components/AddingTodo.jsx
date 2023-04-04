@@ -76,7 +76,7 @@ if(error)
      >
 
 
-<div className='flex flex-col gap-10'>
+<div className='flex flex-col gap-8'>
 
         {/* for add title  */}
      <div className='flex gap-4'>
@@ -100,7 +100,14 @@ if(error)
           value={task}
           onChange={(e)=>setTask(e.target.value)}
         />
+       
+        <h3
+        className='text-red-500 font-bold'
+        >Kindly add comma (,) for multiple tasks eg: Badminton,Gym</h3>
+
       </div>
+
+      
 
       {/* adding button  */}
       <div>
