@@ -6,14 +6,12 @@ const SeeTodo = () => {
 
   const [todos, setTodos] = useState([]); 
 
+  const BaseUrl = "https://todo-mern-3h7q.onrender.com";
 
   const showTodo = async()=>{
-    let { data } = await axios.get(`/gettodos`);
+    let { data } = await axios.get(`${BaseUrl}/gettodos`);
     console.log(data.todos); 
     setTodos(data.todos); 
-
-   
-
 
   }
 
@@ -36,11 +34,11 @@ const SeeTodo = () => {
     title: todoTitle,
   }
   
-  await axios.put(`/editTitleOnly/${todoId}`, data); 
+  await axios.put(`${BaseUrl}/editTitleOnly/${todoId}`, data); 
   showTodo();
 
   }
-
+// it is comment 
 
   const addTask=async (id)=>{
    let todoTasks = prompt("Enter New Tasks");
@@ -54,7 +52,7 @@ const SeeTodo = () => {
     tasks: todoTasks,
    }
 
-   await axios.put(`/addtaskonly/${id}`,data);
+   await axios.put(`${BaseUrl}/addtaskonly/${id}`,data);
    showTodo();
   }
 
@@ -71,12 +69,12 @@ const SeeTodo = () => {
     tasks: todoTasks,
   }
 
-  await axios.put(`/edittodo/${id}`, data);
+  await axios.put(`${BaseUrl}/edittodo/${id}`, data);
   showTodo();
  }
 
  const deleteTodo= async(id)=>{
-  await axios.delete(`/detetetodo/${id}`);
+  await axios.delete(`${BaseUrl}/detetetodo/${id}`);
   alert("Todo deleted successfuly");
   showTodo();
  };

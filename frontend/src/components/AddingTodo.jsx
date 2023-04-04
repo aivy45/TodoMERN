@@ -5,6 +5,7 @@ import axios from 'axios'
 import Footer from '../layouts/Footer';
 import Egg from '../layouts/Egg';
 const AddingTodo = () => {
+  const BaseUrl = "https://todo-mern-3h7q.onrender.com";
 
     const [title, setTitle] = useState("");
     const [task, setTask]= useState("");
@@ -39,7 +40,7 @@ const sendData= async()=>{
  }
   
   const [,error]= await handlePromise(
-   axios.post('/addtodo', todo)
+   axios.post(`${BaseUrl}/addtodo`, todo)
 )
 if(!error)
 {
@@ -91,7 +92,7 @@ if(error)
      {/* for add tasks  */}
       <div>
         <h2  className='text-blue-800 font-bold'>Add your tasks here</h2>
-        <textarea  id="" cols="80" rows="10"
+        <textarea  id="" cols="80" rows="6"
          className='border-2 outline-none p-2 my-2'
           placeholder='Add your tasks here...'
           type="text"
